@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Liter&family=Momo+Trust+Display&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+}
+h1,h2,h3,h4,h5,h6,p,span {
+    color: var(--White);
+}
+p, span {
+    font-family: var(--font-text);
+}
+:root {
+    --font-text: 'Liter', sans-serif;
+    --font-title: 'Momo Trust Display', sans-serif;
+    --Indigo: #2B2D42;
+    --Gray: #8D99AE;
+    --Lemon: #F8F32B;
+    --White: #FFFAFF;
+    --Black: #000;
+    --Bg: #131316;
+    --Blue: #30BCED;
+    --Graphite: #303036;
+    --Coral: #FC5130;
+}
+.nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    margin: 20px;
+    width: 50%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.nav-links {
+    width: 70%;
+    height: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav-link {
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: fit-content;
+    color: var(--White);
+    font-family: var(--font-text);
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.1s ease-out;
+    border: 1px solid transparent;
+}
+.nav-link:hover {
+    color: var(--White);
+    border-color: var(--White);
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0px 5px 40px -20px var(--White);
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    background-color: var(--Gray);
+    border-radius: 100%;
+}
+.header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Bg);
+    display: flex;
+}
+.header-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.header-content h1 {
+    font-size: 3rem;
+}
+.header-content p {
+    font-size: 1.5rem;
+}
+.header-services {
+    width: fit-content;
+    height: 50px;
+    z-index: 50;
+    color: var(--White);
+    padding: 15px 30px;
+    border: 1px solid var(--White);
+    transition: 0.1s ease-out;
+    border-radius: 15px;
+}
+.header-services:hover {
+    background-color: var(--White);
+    color: var(--Bg);
+    box-shadow: 0px 10px 40px -20px var(--White);
+    transform: translatey(-2px);
+}
+.header-bg {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, var(--Bg) 10%, transparent 45%, var(--Bg) 100%), url(../imgs/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+}
+.main {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--Bg);
+    z-index: 10;
+}
+.main-container {
+    width: 100%;
+    height: inherit;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.card {
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-title {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+.main-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    filter: blur(5px);
+    transition: 0.2s ease-out;
+}
+.card:hover .main-bg{
+    filter: blur(0px);
+}
+.builds-bg {
+    background-image: url(../imgs/Builds.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.maintenance-bg {
+    background-image: url(../imgs/Maintenance.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.data-recovery-bg {
+    background-image: url(../imgs/recovery.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.components-bg {
+    background-image: url(../imgs/components.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.info-icon {
+    width: 100px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.icon-build {
+    background-image: url('../imgs/CPU.svg');
+}
+.icon-maintenance {
+    background-image: url('../imgs/Maintenance.svg');
+}
+.icon-recover {
+    width: 80px;
+    background-image: url('../imgs/Recover.svg');
+}
+.icon-components {
+    width: 120px;
+    background-image: url('../imgs/component.svg');
+}
+.info-card {
+    width: 60%;
+    height: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    line-height: 1.5;
+    margin: auto;
+    border-radius: 20px;
+    z-index: 100;
+    transition: 0.2s ease-out;
+    border: 1px solid var(--Gray);
+    box-shadow: inset 0px 0px 50px -40px var(--Gray), 0px 20px 50px -20px #000;
+}
+.info-card:hover {
+    transform: scale(1.1);
+}
+
+
+.builds-text {
+    width: 50%;
+}
+.content-link {
+    margin-top: 30px;
+    color: var(--Blue);
+    padding: 15px 20px;
+    border: 1px solid var(--Blue);
+    border-radius: 20px;
+    transition: 0.1s ease-out;
+    z-index: 100;
+    box-shadow: 0px 15px 40px -20px var(--Blue);
+}
+.content-link:hover {
+    background-color: hsla(196, 84%, 56%, 0.15);
+    transform: scale(1.05);
+}
+.providers {
+    width: 100%;
+    height: 80vh;
+    background-color: var(--Graphite);
+    background-image: linear-gradient(to bottom, var(--Bg), transparent);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+.providers-title {
+    font-size: 2rem;
+}
+.providers-description {
+    margin: 40px;
+    max-width: 600px;
+    text-align: center;
+}
+.providers-brands {
+    width: 90%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+.providers-logo {
+    width: 100%;
+    align-self: center;
+    filter: drop-shadow(10px 5px 10px #000);
+}
+.big-logo {
+    height: 80px;
+}
+.normal-logo {
+    height: 100px;
+}
