@@ -40,6 +40,10 @@ p, span {
     --Graphite: #303036;
     --Coral: #FC5130;
 }
+
+.hamburguer {
+    display: none;
+}
 .nav {
     position: fixed;
     left: 50%;
@@ -52,7 +56,7 @@ p, span {
     align-items: center;
     justify-content: space-evenly;
     z-index: 100;
-    backdrop-filter: blur(5px);
+    backdrop-filter: brightness(60%) blur(5px);
     background-color: rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid;
     border-image:linear-gradient(to right, transparent 20%, var(--White), transparent 80%) 1;
@@ -65,15 +69,16 @@ p, span {
     align-items: center;
 }
 .nav-link {
-    text-align: center;
-    display: inline-block;
     width: 120px;
-    height: fit-content;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--White);
     font-family: var(--font-text);
     font-size: 1.2rem;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 20px;
     transition: all 0.1s ease-out;
     border: 1px solid transparent;
 }
@@ -86,8 +91,9 @@ p, span {
 .logo {
     width: 50px;
     height: 50px;
-    background-color: var(--Gray);
-    border-radius: 100%;
+    background-image: url("../imgs/isotipo-c.svg");
+    background-position: center;
+    background-size: cover;
 }
 .header {
     position: relative;
@@ -115,6 +121,9 @@ p, span {
 .header-services {
     width: fit-content;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 50;
     color: var(--White);
     padding: 15px 30px;
@@ -271,13 +280,17 @@ p, span {
     text-align: center;
 }
 .providers-brands {
-    width: 90%;
+    width: 100%;
     height: 80%;
+}
+.providers-track {
+    width: inherit;
+    height: inherit;
     display: grid;
+    gap: 60px;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     justify-content: center;
-    gap: 60px;
 }
 .providers-logo {
     width: 100%;
@@ -285,16 +298,16 @@ p, span {
     filter: drop-shadow(10px 5px 10px #000);
 }
 .big-logo {
-    height: 80px;
+    max-height: 80px;
 }
 .normal-logo {
-    height: 100px;
+    max-height: 100px;
 }
 
 .form {
     position: relative;
     width: 100%;
-    height: 85vh;
+    height: 800px;
     background-image: linear-gradient(165deg, var(--Black), var(--Dark-gray));
     text-align: center;
     display: flex;
@@ -476,4 +489,294 @@ p, span {
 
 .footer-about-title {
     margin-bottom: -20px;
+}
+
+@media (max-width: 1000px) {
+
+    .nav {
+        z-index: -100;
+        top: 10%;
+        left: 50%;
+        width: 90%;
+        height: 600px;
+        opacity: 0;
+        transform: translateY(20px) translateX(-50%);
+        flex-direction: column;
+        backdrop-filter: blur(10px) brightness(50%);
+        transition: all 0.3s ease-out;
+    }
+    .nav-link {
+        width: 100%;
+    }
+    .display {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+        visibility: visible;
+        z-index: 100;
+    }
+    .logo {
+        margin-top: 40px;
+        flex-shrink: 0;
+        object-fit: cover;
+    }
+    .nav-links {
+        flex-direction: column;
+    }
+    .hamburguer {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-image: url('../imgs/ham.svg');
+        background-position: center;
+        background-size: cover;
+        z-index: 100;
+        margin: 20px;
+        transition: 0.1s ease-out;
+        cursor: pointer;
+    }
+    .hamburguer:active {
+        background-color: var(--Bg);
+        transform: scale(1.1);
+    }
+    .header-content {
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .header p {
+        font-size: 1.2rem;
+    }
+    .main-container {
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .main-link {
+        width: 90%;
+    }
+    .footer {
+        height: 100%;
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, max-content);
+    }
+    .footer div {
+        align-items: center;
+    }
+    .footer-block {
+        padding: 20px;
+    }
+    .footer-copyright {
+        grid-column: auto;
+        margin: 30px auto;
+    }
+    .main-bg {
+        filter: blur(0);
+    }
+    .providers {
+        height: fit-content;
+        padding: 0;
+    }
+    .providers h3 {
+        margin-top: 50px;
+    }
+    .providers p {
+        margin: 50px 10px;
+    }
+    .providers-logo {
+        max-width: 200px;
+        max-height: 100px;
+    }
+    .providers-brands {
+        display: block;
+        width: 100%;
+        margin: 100px 0;
+        overflow-x: hidden;
+    }
+    .providers-track {
+        width: max-content;
+        height: fit-content;
+        display: flex;
+        gap: 100px;
+        animation: scrollAnimation 12s linear infinite;
+    }
+
+    @keyframes scrollAnimation{
+        0% {
+            transform: translateX(40%);
+        }
+        100% {
+            transform: translateX(-105%);
+        }
+    }
+    .form {
+        padding: 50px 0;
+        height: 800px;
+    }
+    .formbg {
+        background-position: bottom right;
+    }
+    .form-container {
+        width: 90vw;
+        padding: 30px;
+        gap: 15px;
+        text-align: start;
+        max-width: 500px;
+    }
+    .form-btn {
+        display: block;
+        margin: 10px auto;
+    }
+    .footer-info {
+        width: fit-content;
+        max-width: 320px;
+    }
+}
+@media (max-width: 1200px) {
+    .nav {
+        width: 90%;
+        margin: 20px auto;
+    }
+    .nav a {
+        font-size: 1.1rem;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+    .header p {
+        font-size: 1rem;
+    }
+    .main-container {
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .main-link {
+        width: 80%;
+    }
+    .main-bg {
+        filter: none;
+    }
+    .footer-block {
+        padding: 20px 30px;
+    }
+}
+@media (max-width: 1440px) {
+    .nav {
+        width: 70%;
+    }
+}
+@media (min-width: 2000px) {
+    .nav {
+        height: 100px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    .nav-link {
+        font-size: 1.6rem;
+        width: 170px;
+        height: 70px;
+    }
+    .header-content h1 {
+        font-size: 3.5rem;
+    }
+    .header-content p {
+        font-size: 1.8rem;
+    }
+    .header-services {
+        height: 70px;
+        border-radius: 20px;
+        font-size: 1.5rem;
+    }
+    .info-card h3, .providers h3, .form h3 {
+        font-size: 2.5rem;
+    }
+    .info-card p, .providers p {
+        font-size: 1.5rem;
+    }
+    .form {
+        height: 950px;
+    }
+    .form-container {
+        width: 800px;
+    }
+    .form-container label {
+        font-size: 2rem;
+    }
+    .form-container input {
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    .form-btn {
+        width: 200px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+    .footer h3 {
+        font-size: 2rem;
+    }
+    .footer p, .footer a {
+        font-size: 1.5rem;
+    }
+}
+@media (min-width: 2560px) {
+    .nav {
+        height: 120px;
+    }
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+    .nav-link {
+        font-size: 1.8rem;
+        width: 180px;
+        height: 80px;
+    }
+    .header-content h1 {
+        font-size: 4rem;
+    }
+    .header-content p {
+        font-size: 2rem;
+    }
+    .header-services {
+        height: 70px;
+        border-radius: 20px;
+        font-size: 1.5rem;
+    }
+    .info-card h3, .providers h3, .form h3 {
+        font-size: 2.5rem;
+    }
+    .info-card p, .providers p {
+        font-size: 1.5rem;
+    }
+    .form {
+        height: 950px;
+    }
+    .form-container {
+        width: 800px;
+    }
+    .form-container label {
+        font-size: 2rem;
+    }
+    .form-container input {
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    .form-btn {
+        width: 200px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+    .footer h3 {
+        font-size: 2rem;
+    }
+    .footer p, .footer a {
+        font-size: 1.5rem;
+    }
 }

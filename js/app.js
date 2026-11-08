@@ -1,5 +1,19 @@
 
 const cards = document.querySelectorAll('.card');
+const form = document.querySelector(".form-container");
+const hamburguer = document.querySelector(".hamburguer");
+const nav = document.querySelector(".nav");
+
+hamburguer.addEventListener("click", () => {
+    if(nav.classList.contains("display")) {
+        nav.classList.remove("display");
+    } else {
+        nav.classList.add("display");
+    }
+});
+form.addEventListener("submit", () => {
+    event.preventDefault();
+});
 
 const mostrarCards = (entradas) => {
     entradas.forEach(entrada => {
