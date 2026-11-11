@@ -89,9 +89,9 @@ p, span {
     box-shadow: 0px 5px 40px -20px var(--White);
 }
 .logo {
-    width: 50px;
-    height: 50px;
-    background-image: url("../imgs/isotipo-c.svg");
+    width: 80px;
+    height: 80px;
+    background-image: url("../imgs/logo.png");
     background-position: center;
     background-size: cover;
 }
@@ -383,19 +383,20 @@ p, span {
 
 .footer {
     width: 100%;
-    height: 60vh;
+    height: fit-content;
     background-color: var(--Footer);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 50px;
 }
 .footer-p, .footer-a {
     font-family: var(--font-text);
 }
 .footer-block {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     margin-top: 30px;
-    padding: 30px 50px;
+    padding: 0 40px;
 }
 .footer-list {
     display: flex;
@@ -411,6 +412,7 @@ p, span {
     height: fit-content;
     align-self: center;
     margin: 0 auto;
+    padding: 20px;
     grid-column: 1 / 5;
     text-align: center;
     font-family: var(--font-text);
@@ -492,7 +494,6 @@ p, span {
 }
 
 @media (max-width: 1000px) {
-
     .nav {
         z-index: -100;
         top: 10%;
@@ -559,6 +560,9 @@ p, span {
     }
     .card-title {
         font-size: 1.5rem;
+    }
+    .main-link {
+        height: 60%;
     }
     .info-card p {
         font-size: 1rem;
@@ -667,9 +671,6 @@ p, span {
     .main-bg {
         filter: none;
     }
-    .footer-block {
-        padding: 20px 30px;
-    }
 }
 @media (max-width: 1440px) {
     .nav {
@@ -723,6 +724,9 @@ p, span {
         width: 200px;
         height: 80px;
         font-size: 1.5rem;
+    }
+    .footer-block {
+        margin-top: 100px;
     }
     .footer h3 {
         font-size: 2rem;
